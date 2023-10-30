@@ -1,93 +1,47 @@
 # Recommender System
 
+A **Recommender System (RS)** is a system that recommends items to users based on their preferences. It is a type of information filtering system that seeks to predict the "rating" or "preference" that a user would give to an item. Recommender systems are utilized in a variety of areas including movies, music, news, books, research articles, search queries, social tags, and products in general. They are mostly known for their use in commercial applications, such as Amazon, Netflix, and YouTube.
 
+There are two main types of recommender systems: **content-based** and **collaborative filtering**. More on this below.
 
-## Getting started
+## Assignment
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+You can decide either to implement a content-based or collaborative filtering recommender system. Please note that for a collaborative filtering recommender system, you will need to use a dataset that has user-item ratings. For a content-based recommender system, you will need to use a dataset that has item features.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Dataset
 
-## Add your files
+You will need to pick a new dataset for this assignment. See the Datasets section for some suggestions, but first read on before choosing a dataset because there are some requirements that the dataset must meet depending on the type of recommender system you want to implement.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+### Content-based RS
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/pashioya/recommender-system.git
-git branch -M main
-git push -uf origin main
-```
+A content-based filtering algorithm is a type of recommender system that uses the description of the items and a profile of the user's interests to recommend items to the user. The algorithm is based on the assumption that if a user liked an item in the past, the user will like a similar item in the future.
 
-## Integrate with your tools
+The crux of the content-based filtering algorithm is the similarity function. The similarity function is used to measure the similarity between two items. The similarity function is used to find the items that are most similar to the items that the user has liked in the past. The items that are most similar to the items that the user has liked in the past are recommended to the user. The algorithm predicts that a user will like an item if the item is similar to items that the user liked in the past.
 
-- [ ] [Set up project integrations](https://gitlab.com/pashioya/recommender-system/-/settings/integrations)
+**Base your own solution on the notebook we provided in the course material and apply it to your dataset.**
 
-## Collaborate with your team
+### Collaborative Filtering RS
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+A collaborative filtering algorithm is a type of recommender system that uses the collective behavior of a group of users to recommend items to a new user. The algorithm is based on the assumption that users who agree in their evaluation of certain items in the past will agree again in the future.
 
-## Test and Deploy
+The crux of the collaborative filtering algorithm is also a similarity function. The similarity function is used to measure the similarity between two users. The similarity function is used to find the users that are most similar to the user that is being recommended to. The users that are most similar to the user that is being recommended to are used to find the items that the user liked in the past. The items that the user liked in the past are recommended to the user. The algorithm predicts that a user will like an item if similar users liked the item.
 
-Use the built-in continuous integration in GitLab.
+**Base your own solution on the notebook we provided in the course material and apply it to your dataset.**
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Evaluation
 
-***
+During the exam period, you will be asked to present your recommender system to the teaching staff. You should be able to explain the algorithm you used, the dataset you used, and the results you obtained. You will also be asked to answer questions about your implementation.
 
-# Editing this README
+## Submission
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+Create a `requirements.txt` file from your virtual environment and add the dependencies to it. Do this with `pip freeze > requirements.txt` in a terminal in PyCharm.
 
-## Suggestions for a good README
+Create a zip file of your project and submit it to Canvas. Don't include the virtual environment in the zip file. The instructor will create a virtual environment and install the dependencies from your `requirements.txt` file using `pip install -r requirements.txt`.
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## Datasets
 
-## Name
-Choose a self-explaining name for your project.
+When choosing a dataset, make sure it contains ratings. Look at the [MovieLens dataset](Links to an external site.) that we have used in the example notebooks. It consists of multiple files: a metadata file and a ratings file.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+The metadata file contains the information about the items, and the ratings file contains the ratings of the items by the users. You can use the metadata file to create a content-based recommender system, and you can use the ratings file to create a collaborative filtering recommender system. So, depending on the type of recommender system you want to build, you should go for something similar to either the `movies_metadata.csv` or the `ratings_small.csv` file in terms of content.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Some datasets mentioned below are huge. When prototyping your models, it's best to use only a small subset of the data. You can use the `sample` method of a Pandas DataFrame to get a random sample of the data. Also, keep in mind that most datasets also require some data preprocessing.
